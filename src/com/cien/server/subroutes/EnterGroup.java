@@ -66,6 +66,8 @@ public class EnterGroup implements SubRoute {
         Util.clear(password);
 
         c.getOutput().writeInt(3);
+        
+        System.out.println(user.getName()+" Entered group "+group.getName());
     }
 
 }

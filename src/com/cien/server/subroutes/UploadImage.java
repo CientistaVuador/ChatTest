@@ -71,6 +71,8 @@ public class UploadImage implements SubRoute {
         } finally {
             theFileWriting.delete();
         }
+        
+        System.out.println("["+group.getName()+"] "+user.getName()+" img>> "+theFile.getName());
     }
     
 }

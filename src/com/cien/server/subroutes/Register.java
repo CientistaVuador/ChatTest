@@ -47,6 +47,7 @@ public class Register implements SubRoute {
         String id = u.login();
         c.getOutput().writeUTF(id);
         
+        System.out.println(u.getName()+" Logged out");
     }
     
 }

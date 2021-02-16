@@ -43,6 +43,9 @@ public class DownloadImage implements SubRoute {
         
         c.getOutput().writeLong(file.length());
         io.writeCacheFileTo(name, c.getOutput());
+        
+        System.out.println(file.getName()+" Requested. ("+file.length()+" bytes)");
+        
     }
     
 }

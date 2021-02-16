@@ -39,6 +39,7 @@ public class ExitGroup implements SubRoute {
         
         c.getOutput().writeInt(2);
         
+        System.out.println(user+" Exited group "+group.getName());
     }
     
 }

@@ -6,6 +6,7 @@
 package com.cien.client;
 
 import com.cien.securesocket.Client;
+import com.cien.server.ChatServer;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
@@ -59,7 +60,19 @@ public class Main {
     public static final Main MAIN = new Main();
 
     public static void main(String[] args) throws Exception {
-        MAIN.run();
+        boolean startServer = false;
+        for (String s : args) {
+            if (s.equalsIgnoreCase("--server")) {
+                startServer = true;
+            }
+        }
+        if (startServer) {
+            System.out.println("Starting server at " + AddressConfig.getIp() + ":" + AddressConfig.getPort());
+            System.out.println("To change the ip or port open the jar, go to com/cien/client and change address.txt");
+            ChatServer.main(args);
+        } else {
+            MAIN.run();
+        }
     }
 
     private final InetSocketAddress server = AddressConfig.getAddress();
@@ -125,13 +138,13 @@ public class Main {
         for (int j = 0; j < usersNumber; j++) {
 
             array[j] = c.getInput().readUTF();
-            
+
         }
 
         users.put(group, array);
-        
+
         updateCurrentUserList();
-        
+
     }
 
     private void onDataReceived(Client c) throws Exception {
@@ -232,7 +245,7 @@ public class Main {
 
                         out.writeUTF("ping");
                         out.flush();
-                        
+
                     }
 
                 } catch (IOException ex) {
@@ -923,9 +936,9 @@ public class Main {
                     login.getUsernameField().setText("");
 
                     login.setVisible(false);
-                    chat.setTitle("Chat do Cien - "+user);
+                    chat.setTitle("Chat do Cien - " + user);
                     chat.setVisible(true);
-                    
+
                     client.setWorking(false);
                 } catch (IOException ex) {
                     client.close();

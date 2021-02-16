@@ -31,6 +31,7 @@ public class ListenerShutdown implements SubRoute {
         
         user.removeListener(c);
         
+        System.out.println("Listener of "+user.getName()+" is now offline.");
     }
     
 }

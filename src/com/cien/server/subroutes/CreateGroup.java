@@ -52,6 +52,9 @@ public class CreateGroup implements SubRoute {
         p.addUser(user);
         
         c.getOutput().writeInt(2);
+        
+        System.out.println(user.getName()+" Created group "+name);
+        
     }
 
 }

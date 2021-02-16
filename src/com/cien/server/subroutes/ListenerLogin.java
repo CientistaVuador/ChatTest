@@ -31,6 +31,8 @@ public class ListenerLogin implements SubRoute {
         c.getOutput().writeInt(0);
         
         user.addListener(c);
+        
+        System.out.println("Listener of "+user.getName()+" is now online.");
     }
 
 }

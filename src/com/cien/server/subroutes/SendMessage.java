@@ -39,6 +39,8 @@ public class SendMessage implements SubRoute {
         g.sendMessageForAll(user.getName(), text, false);
         
         c.getOutput().writeInt(2);
+        
+        System.out.println("["+g.getName()+"] "+user.getName()+" >> "+text);
     }
     
 }
